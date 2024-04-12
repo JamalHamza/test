@@ -1,11 +1,13 @@
+import Cart from './components/Cart';
+import Products from './components/Products';
 import Reviews from './components/Reviews';
-import Cart from './components/Cart'
 
 export default function Home() {
   return (
     <>
       <Reviews />
       <Cart />
+      <Products />
     </>
   );
 }
