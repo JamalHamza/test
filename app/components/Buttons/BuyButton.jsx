@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+'use client';
+import { useState } from 'react';
 
-const QuantitySelector = () => {
+const BuyButton = () => {
   const [quantity, setQuantity] = useState(0);
 
   const handleDecrease = () => {
-    if (quantity > 0) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-    }
+    setQuantity((prevQuantity) => prevQuantity - 1);
   };
 
   const handleIncrease = () => {
@@ -22,12 +21,22 @@ const QuantitySelector = () => {
 
   return (
     <div>
-      <button onClick={handleDecrease}>-</button>
-      <input type='text' value={quantity} onChange={handleInputChange} />
-      <button onClick={handleIncrease}>+</button>
-      <div>Total: {quantity}</div>
+      {quantity > 0 ? (
+        <>
+          <button onClick={handleDecrease}>-</button>
+          <input
+            type='number'
+            value={quantity}
+            onChange={handleInputChange}
+            min={0}
+          />
+          <button onClick={handleIncrease}>+</button>
+        </>
+      ) : (
+        <button onClick={handleIncrease}>купить</button>
+      )}
     </div>
   );
 };
 
-export default QuantitySelector;
+export default BuyButton;

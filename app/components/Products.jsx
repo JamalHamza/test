@@ -1,4 +1,7 @@
+
+
 import Image from 'next/image';
+import BuyButton from './Buttons/BuyButton';
 
 async function fetchData() {
   const res = await fetch(
@@ -11,7 +14,6 @@ async function fetchData() {
 async function Products() {
   const productsList = await fetchData();
 
-  console.log(productsList.products[0].image_url);
 
   return (
     <>
@@ -30,6 +32,10 @@ async function Products() {
             <p className='product-title'>{title}</p>
             <p className='product-description'>{description}</p>
             <p className='product-price'> цена: {price}₽</p>
+
+            <div>
+              <BuyButton />
+            </div>
           </div>
         );
       })}
