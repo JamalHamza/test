@@ -1,9 +1,28 @@
-import React from 'react'
+async function getReviews() {
+  const response = await fetch('http://o-complex.com:1337/reviews', {
+    method: 'GET',
+  });
 
-function Reviews() {
-  return (
-    <div>Reviews</div>
-  )
+  return response.json();
 }
 
-export default Reviews
+async function Reviews() {
+  const reviews = await getReviews();
+
+  return (
+    <div>
+      {reviews.map((review, index) => {
+        return (
+          <div className='review-main' key={index}>
+            <div className='review-card'>
+              <p className='review-title'>Отзыв {index + 1}</p>
+              <p className='review-body'>{review.text}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default Reviews;

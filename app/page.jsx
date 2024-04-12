@@ -1,7 +1,11 @@
-import Image from "next/image";
+import Reviews from './components/Reviews';
+import Cart from './components/Cart'
 
 export default function Home() {
   return (
-    <h1>Hello World</h1>
+    <>
+      <Reviews />
+      <Cart />
+    </>
   );
 }
