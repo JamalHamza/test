@@ -1,5 +1,3 @@
-
-
 import Image from 'next/image';
 import BuyButton from './Buttons/BuyButton';
 
@@ -11,9 +9,16 @@ async function fetchData() {
   return data;
 }
 
+function shortcutWords(str) {
+  const formatted = str
+    .split(' ')
+    .map((char) => (char.length > 8 ? char.slice(0, 6) : char));
+
+  return formatted.join(' ');
+}
+
 async function Products() {
   const productsList = await fetchData();
-
 
   return (
     <>
@@ -29,8 +34,8 @@ async function Products() {
               height={500}
               className='img'
             />
-            <p className='product-title'>{title}</p>
-            <p className='product-description'>{description}</p>
+            <p className='product-title'>{shortcutWords(title)}</p>
+            <p className='product-description'>{shortcutWords(description)}</p>
             <p className='product-price'> цена: {price}₽</p>
 
             <div>

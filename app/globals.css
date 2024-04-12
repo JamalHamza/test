@@ -97,11 +97,11 @@ html {
 .product-title {
   font-size: 36px;
   color: #000;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin: 10px 0;
+  text-align: center;
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
 }
 
 .product-description {
@@ -109,9 +109,9 @@ html {
   font-size: 24px;
   color: rgba(0, 0, 0, 0.657);
   text-align: center;
-  white-space: nowrap;
+  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: inherit;
+  text-overflow: inherit; */
 }
 
 .product-price {
