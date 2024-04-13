@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const AppContext = createContext();
 
@@ -64,8 +65,7 @@ export function AppWrapper({ children }) {
 
   const totalCost = cart.reduce((total, item) => total + item.total, 0);
 
-
-   async function postOrderRequest(body) {
+  async function postOrderRequest(body) {
     const res = await fetch('http://o-complex.com:1337/order', {
       method: 'POST',
       headers: {
@@ -75,9 +75,9 @@ export function AppWrapper({ children }) {
     });
 
     if (res.ok) {
-      console.log('Order placed successfully!');
+      toast('Success!');
     } else {
-      console.error('Failed to place order');
+      toast('Error!');
     }
   }
 
@@ -90,7 +90,8 @@ export function AppWrapper({ children }) {
         totalCost,
         phoneNumber,
         updatePhoneNumber,
-        postOrderRequest
+        postOrderRequest,
+        
       }}
     >
       {children}

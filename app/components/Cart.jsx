@@ -18,7 +18,6 @@ function Cart() {
     cart: productBody,
   };
 
-
   return (
     <div className='cart'>
       <p className='cart-title'>Добавленные товары</p>
