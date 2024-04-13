@@ -1,17 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import {useAppContext} from "../../context";
 
 const PhoneNumberInput = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const { phoneNumber, updatePhoneNumber } = useAppContext();
 
   const handleInput = (e) => {
     let inputValue = e.target.value;
 
     // Format the phone number
     const formattedPhoneNumber = formatPhoneNumber(inputValue);
-    setPhoneNumber(formattedPhoneNumber);
-
+    updatePhoneNumber(formattedPhoneNumber);
   };
 
   return (

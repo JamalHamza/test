@@ -10,10 +10,19 @@ export function AppWrapper({ children }) {
     return storedCart ? JSON.parse(storedCart) : [];
   });
 
+  const [phoneNumber, setPhoneNumber] = useState(() => {
+    return localStorage.getItem('phoneNumber') || '';
+  });
+
   // Update local storage whenever the cart state changes
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
+
+  // Update local storage whenever the phoneNumber state changes
+  useEffect(() => {
+    localStorage.setItem('phoneNumber', phoneNumber);
+  }, [phoneNumber]);
 
   const addToCart = (productToAdd) => {
     const existingProductIndex = cart.findIndex(
@@ -50,14 +59,22 @@ export function AppWrapper({ children }) {
     }
   };
 
- 
+  const updatePhoneNumber = (newPhoneNumber) => {
+    setPhoneNumber(newPhoneNumber);
+  };
 
-  // Calculate total cost
   const totalCost = cart.reduce((total, item) => total + item.total, 0);
 
   return (
     <AppContext.Provider
-      value={{ removeItemFromCart, cart, addToCart,  totalCost }}
+      value={{
+        removeItemFromCart,
+        cart,
+        addToCart,
+        totalCost,
+        phoneNumber,
+        updatePhoneNumber,
+      }}
     >
       {children}
     </AppContext.Provider>
