@@ -162,3 +162,36 @@ html {
   font-weight: 400;
   border-radius: 15px;
 }
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    font-size: 96px;
+    min-width: 1442px;
+  }
+  .review {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cart {
+    margin-top: 190px;
+    min-width: 708px;
+  }
+
+  .form {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .product-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  /* .buyBtn{
+    border: 2px solid;
+    
+  } */
+}

@@ -13,7 +13,7 @@ const BuyButton = ({ product }) => {
   const quantity = cartProduct ? cartProduct.quantity : 0;
 
   return (
-    <div>
+    <div className='buyBtn'>
       {existsInArray ? (
         <div className='cart-main'>
           <button

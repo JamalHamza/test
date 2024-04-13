@@ -10,7 +10,7 @@ async function Reviews() {
   const reviews = await getReviews();
 
   return (
-    <div>
+    <div className="review">
       {reviews.map((review, index) => {
         return (
           <div className='review-main' key={index}>

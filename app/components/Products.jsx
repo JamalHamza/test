@@ -21,7 +21,7 @@ async function Products() {
   const productsList = await fetchData();
 
   return (
-    <>
+    <div className='product-wrapper'>
       {productsList?.products.map((product) => {
         const { id, image_url, title, description, price } = product;
 
@@ -38,7 +38,7 @@ async function Products() {
             <p className='product-description'>{shortcutWords(description)}</p>
             <p className='product-price'> цена: {price}₽</p>
 
-            <div>
+            <div style={{border: '1px solid red', position:'fixed', bottom: 0}}>
               <BuyButton product={product} />
             </div>
 
@@ -46,7 +46,7 @@ async function Products() {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
