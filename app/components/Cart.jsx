@@ -1,11 +1,18 @@
+'use client';
+
+import { useAppContext } from '../../context';
 import Form from './Form';
 
 function Cart() {
+  const { quantity } = useAppContext();
+
+  console.log(quantity);
+
   return (
     <div className='cart'>
       <p className='cart-title'>Добавленные товары</p>
       <div className='cart-detail'>
-        <p>товар 1</p>
+        <p>{quantity}</p>
         <p>x4</p>
         <p>4444</p>
       </div>

@@ -1,8 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useAppContext } from '../../../context';
 
 const BuyButton = () => {
-  const [quantity, setQuantity] = useState(0);
+  const { quantity, setQuantity } = useAppContext();
 
   const handleDecrease = () => {
     setQuantity((prevQuantity) => prevQuantity - 1);

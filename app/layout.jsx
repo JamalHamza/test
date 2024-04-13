@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google';
+import { AppWrapper } from '../context/index';
 import Header from './components/Header';
 import './globals.css';
 
@@ -13,8 +14,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Header />
-        {children}
+        <AppWrapper>
+          <Header />
+          {children}
+        </AppWrapper>
       </body>
     </html>
   );
