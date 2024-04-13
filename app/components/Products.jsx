@@ -39,8 +39,10 @@ async function Products() {
             <p className='product-price'> цена: {price}₽</p>
 
             <div>
-              <BuyButton />
+              <BuyButton product={product} />
             </div>
+
+            
           </div>
         );
       })}

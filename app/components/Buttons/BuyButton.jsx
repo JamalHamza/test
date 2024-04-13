@@ -1,44 +1,31 @@
 'use client';
 import { useAppContext } from '../../../context';
 
-const BuyButton = () => {
-  const { quantity, setQuantity } = useAppContext();
+const BuyButton = ({ product }) => {
+  const { removeItemFromCart, cart, addToCart, removeFromCart } =
+    useAppContext();
 
-  const handleDecrease = () => {
-    setQuantity((prevQuantity) => prevQuantity - 1);
-  };
-
-  const handleIncrease = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const handleInputChange = (event) => {
-    const value = parseInt(event.target.value);
-    if (!isNaN(value)) {
-      setQuantity(value);
-    }
-  };
+  const existsInArray = cart.find((item) => item.id === product.id);
 
   return (
     <div>
-      {quantity > 0 ? (
+      {existsInArray ? (
         <div className='cart-main'>
-          <button className='cart-btn' onClick={handleDecrease}>
+          <button
+            className='cart-btn'
+            onClick={() => removeItemFromCart(product)}
+          >
             -
           </button>
-          <input
-          className='cart-input'
-            type='number'
-            value={quantity}
-            onChange={handleInputChange}
-            min={0}
-          />
-          <button className='cart-btn' onClick={handleIncrease}>
+
+          
+
+          <button className='cart-btn' onClick={() => addToCart(product)}>
             +
           </button>
         </div>
       ) : (
-        <button className='cart-btn-buy' onClick={handleIncrease}>
+        <button className='cart-btn-buy' onClick={() => addToCart(product)}>
           купить
         </button>
       )}
