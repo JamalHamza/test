@@ -6,7 +6,6 @@ import Form from './Form';
 function Cart() {
   const { quantity } = useAppContext();
 
-  console.log(quantity);
 
   return (
     <div className='cart'>

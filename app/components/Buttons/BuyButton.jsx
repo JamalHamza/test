@@ -22,18 +22,25 @@ const BuyButton = () => {
   return (
     <div>
       {quantity > 0 ? (
-        <>
-          <button onClick={handleDecrease}>-</button>
+        <div className='cart-main'>
+          <button className='cart-btn' onClick={handleDecrease}>
+            -
+          </button>
           <input
+          className='cart-input'
             type='number'
             value={quantity}
             onChange={handleInputChange}
             min={0}
           />
-          <button onClick={handleIncrease}>+</button>
-        </>
+          <button className='cart-btn' onClick={handleIncrease}>
+            +
+          </button>
+        </div>
       ) : (
-        <button onClick={handleIncrease}>купить</button>
+        <button className='cart-btn-buy' onClick={handleIncrease}>
+          купить
+        </button>
       )}
     </div>
   );

@@ -99,7 +99,6 @@ html {
   color: #000;
   margin: 10px 0;
   text-align: center;
-
 }
 
 .product-description {
@@ -107,7 +106,6 @@ html {
   font-size: 24px;
   color: rgba(0, 0, 0, 0.657);
   /* text-align: center; */
-  
 }
 
 .product-price {
@@ -121,4 +119,39 @@ html {
   border-radius: 15px;
   margin: 1px;
   height: 366px;
+}
+
+.cart-btn {
+  padding: 14px 20px;
+  color: #f0f0f0;
+  background-color: #222222;
+  font-size: 36px;
+  font-weight: 400;
+  border-radius: 15px;
+}
+
+.cart-input {
+  padding: 14px 20px;
+  width: 30%;
+  color: #f0f0f0;
+  background-color: #222222;
+  font-size: 36px;
+  font-weight: 400;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.cart-main{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-btn-buy {
+  padding: 16px;
+  width: 100%;
+  color: #f0f0f0;
+  background-color: #222222;
+  font-size: 36px;
+  font-weight: 400;
+  border-radius: 15px;
 }
