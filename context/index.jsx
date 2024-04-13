@@ -51,7 +51,6 @@ export function AppWrapper({ children }) {
       updatedCart[existingProductIndex].quantity -= 1;
 
       if (updatedCart[existingProductIndex].quantity === 0) {
-        // If quantity becomes zero, remove the item from cart and local storage
         updatedCart.splice(existingProductIndex, 1);
       }
 
@@ -65,6 +64,23 @@ export function AppWrapper({ children }) {
 
   const totalCost = cart.reduce((total, item) => total + item.total, 0);
 
+
+   async function postOrderRequest(body) {
+    const res = await fetch('http://o-complex.com:1337/order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (res.ok) {
+      console.log('Order placed successfully!');
+    } else {
+      console.error('Failed to place order');
+    }
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -74,6 +90,7 @@ export function AppWrapper({ children }) {
         totalCost,
         phoneNumber,
         updatePhoneNumber,
+        postOrderRequest
       }}
     >
       {children}

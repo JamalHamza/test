@@ -1,5 +1,4 @@
 'use client';
-
 import { useAppContext } from '../../context';
 import Form from './Form';
 
@@ -8,7 +7,17 @@ function shortenString(str) {
 }
 
 function Cart() {
-  const { cart } = useAppContext();
+  const { cart, postOrderRequest, phoneNumber } = useAppContext();
+
+  const productBody = cart.map((product) => ({
+    id: product.id,
+    quantity: product.quantity,
+  }));
+  const postBodyRequest = {
+    phone: phoneNumber,
+    cart: productBody,
+  };
+
 
   return (
     <div className='cart'>
@@ -38,7 +47,12 @@ function Cart() {
         <>
           <Form />
         </>
-        <button className='form-btn'>заказать</button>
+        <button
+          className='form-btn'
+          onClick={() => postOrderRequest(postBodyRequest)}
+        >
+          заказать
+        </button>
       </div>
     </div>
   );
