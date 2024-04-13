@@ -14,7 +14,7 @@ function shortcutWords(str) {
     .split(' ')
     .map((char) => (char.length > 8 ? char.slice(0, 6) : char));
 
-  return formatted.join(' ');
+  return formatted.join(' ').slice(0, 100);
 }
 
 async function Products() {
