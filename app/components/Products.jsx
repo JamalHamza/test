@@ -38,7 +38,7 @@ async function Products() {
             <p className='product-description'>{shortcutWords(description)}</p>
             <p className='product-price'> цена: {price}₽</p>
 
-            <div style={{border: '1px solid red', position:'fixed', bottom: 0}}>
+            <div>
               <BuyButton product={product} />
             </div>
 

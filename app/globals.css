@@ -190,8 +190,9 @@ html {
     max-width: 1200px;
   }
 
-  /* .buyBtn{
-    border: 2px solid;
-    
-  } */
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
