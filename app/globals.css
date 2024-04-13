@@ -63,12 +63,19 @@ html {
 }
 
 .cart-detail {
-  display: flex;
-  border: 1px solid red;
   font-size: 24px;
   justify-content: space-between;
-  align-items: left;
   margin: 20px 0;
+}
+
+.cart-product-details {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-product-title {
+  min-width: 40%;
 }
 
 .form {
@@ -141,7 +148,7 @@ html {
   text-align: center;
 }
 
-.cart-main{
+.cart-main {
   display: flex;
   justify-content: space-between;
 }

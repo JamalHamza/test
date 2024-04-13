@@ -3,6 +3,10 @@
 import { useAppContext } from '../../context';
 import Form from './Form';
 
+function shortenString(str) {
+  return str.slice(0, 5) + '...';
+}
+
 function Cart() {
   const { cart } = useAppContext();
 
@@ -16,11 +20,15 @@ function Cart() {
           </p>
         ) : (
           cart.map((item) => {
+            const { title, quantity, price } = item;
             return (
-              <div key={item.index}>
-                <p>{item.name}</p>
-                <p>Quantity: {item.quantity}</p>
-                <p>Total: {item.quantity * item.price}</p>
+              <div
+                key={item.title + Math.random()}
+                className='cart-product-details'
+              >
+                <p className='cart-product-title'>{shortenString(title)}</p>
+                <p>x{quantity}</p>
+                <p>{quantity * price}₽</p>
               </div>
             );
           })
